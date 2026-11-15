@@ -1,0 +1,25 @@
+ZNT DESIGN MAPS — V3 (espace administrateur)
+
+FICHIERS
+- index.html : site public et formulaire de commande
+- admin.html : espace administrateur (adresse /admin.html)
+- config.js : URL et clé publique anon de ton projet Supabase
+- supabase_setup.sql : table et règles de sécurité à exécuter dans Supabase
+- merci.html : page de confirmation Netlify (facultative avec le nouveau formulaire)
+
+MISE EN SERVICE
+1. Crée un projet Supabase avec l'aide d'un parent/adulte de confiance si nécessaire.
+2. Dans Supabase > SQL Editor, colle et exécute supabase_setup.sql.
+3. Dans Supabase > Authentication > Providers / Sign In, désactive les inscriptions publiques (Allow new users to sign up OFF).
+4. Dans Supabase > Authentication > Users, crée ton propre utilisateur administrateur avec ton e-mail et un mot de passe fort. Ne partage pas ce mot de passe.
+5. Dans Project Settings > API, copie Project URL et la clé anon/public (pas service_role).
+6. Colle ces deux valeurs dans config.js à la place des textes COLLE_ICI.
+7. Publie tous les fichiers du dossier sur ton hébergeur. Pour Netlify, dépose le dossier ou son ZIP.
+8. Va sur tonsite.fr/admin.html et connecte-toi avec ton compte.
+
+SECURITE
+- La clé anon/public est faite pour être exposée dans le navigateur; les règles RLS protègent les données.
+- Ne mets JAMAIS la clé service_role dans config.js ni dans un fichier public.
+- Garde les inscriptions publiques désactivées et ne crée que ton compte admin.
+- Le public peut créer une demande, mais les règles lui interdisent de lire, modifier ou supprimer les commandes.
+- Cette version utilise Supabase pour les commandes; les anciennes soumissions Netlify ne seront pas importées automatiquement.
